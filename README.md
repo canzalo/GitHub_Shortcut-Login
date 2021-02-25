@@ -59,3 +59,112 @@ function requestUserRepos(username){
     xhr.open('GET', url, true);
     
 }
+
+STEP 5: Send Request & Parse Returned Data into JSON
+
+- Once, we've opened our connection to the GitHub API, we can specify what we want to do with our data using the .onload method.
+Most importantly, we also need to make sure we actually send our request to GitHub's server using the .send() method.
+So just to recap - we're opening our connection to GitHub's server (xhr.open(...)), we're then sending our request to GitHub (xhr.send()), and once our request has been received (xhr.onload), we will run a function that will parse the data. Let's see what the code looks like:
+
+
+
+function requestUserRepos(username){
+    
+
+    // Create new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    
+    // GitHub endpoint, dynamically passing in specified username
+    const url = `https://api.github.com/users/${username}/repos`;
+    
+    // Open a new connection, using a GET request via URL endpoint
+    // Providing 3 arguments (GET/POST, The URL, Async True/False)
+    xhr.open('GET', url, true);
+    
+    // When request is received
+    // Process it here
+    xhr.onload = function() {
+    
+        // Parse API data into JSON
+        const data = JSON.parse(this.response);
+        
+        // Log the response
+        console.log(data);
+    
+    }
+    
+    // Send the request to the server
+    xhr.send();
+    
+}
+
+// Call function passing in 'facebook' as GitHub username
+requestUserRepos('facebook');
+
+
+
+STEP 6: Accessing the API Data
+
+- You'll notice that if you expand the individual objects from the API response, they'll contain all of the information that we're looking for. In our case, we'll want to grab the name, description, and html_url keys from each object within the data array.
+- To get that information, we'll just need to run a simple loop over the data object that's being returned to us in the response, then we can console.log it.
+
+function requestUserRepos(username){
+
+    
+
+    // Create new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    
+    // GitHub endpoint, dynamically passing in specified username
+    const url = `https://api.github.com/users/${username}/repos`;
+    
+    // Open a new connection, using a GET request via URL endpoint
+    // Providing 3 arguments (GET/POST, The URL, Async True/False)
+    xhr.open('GET', url, true);
+    
+    // When request is received
+    // Process it here
+    xhr.onload = function() {
+    
+        // Parse API data into JSON
+        const data = JSON.parse(this.response);
+        
+        // Log the response
+        console.log(data);
+        
+        // Loop over each object in data array
+        for (let i in data) {
+        
+            // Log the repo name
+            console.log('Repo:', data[i].name);
+            
+            // Log the repo description
+            console.log('Description:', data[i].description);
+            
+            // Log the repo url
+            console.log('URL:', data[i].html_url);
+            
+            // Add a separator between each repo
+            console.log('=========================')
+        
+        }
+
+    }
+    
+    // Send the request to the server
+    xhr.send();
+    
+}
+
+// Call function passing in 'facebook' as GitHub username
+requestUserRepos('facebook');
+
+
+STEP 7: Creating directory.
+- Create a directory called Github_api.
+-On this directory create a file named index.html - This file will contain our HTML mark up for the our application 
+- Within the Github_api directory create a file named app.js - This file will contain our JavaScript code.
+
+
+STEP 8: Run the app.
+-
