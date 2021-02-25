@@ -6,22 +6,38 @@ To use GitHub API you must know the github API endpoints.
 
 This is an API endpoint that GitHub has provided that allows us to return the repos for a specified user in JSON format. 
 
+
+
 DEPENDENCIES
+
+
 - GitHub API
+
+
 STEP 1:
+
+
 - We will set up an <b>XMLHttpRequest</b> which will allow us to create a connection with GitHub's API server and request data from it.
 
+
 STEP 2:
+
+
 - Let's wrap our entire GitHub API call into a function so that we can dynamically pass in the GitHub username that we'd like to request info for.
+
 
 function requestUserRepos(username){
 
 }
 
 
+
 STEP 3: Define Our GitHub API Endpoint
 
+
+
 - Let's take the username argument that we're passing into to our function and use that dynamically within the GitHub API endpoint like so:
+
 
 
 function requestUserRepos(username){
@@ -38,9 +54,12 @@ function requestUserRepos(username){
 N/B: 
 - Make sure you use back-ticks and not single or double quotes for the url variable.
 
+
+
 STEP 4: Establishing the Connection to GitHub's Server
 
-Since we will be requesting data from GitHub, we will need to specify open our connection and specify that we will be using a
+
+- Since we will be requesting data from GitHub, we will need to specify open our connection and specify that we will be using a
 GET request, as opposed to a POST request which would mean we would be sending data.
 
 
@@ -60,7 +79,12 @@ function requestUserRepos(username){
     
 }
 
+
+
+
 STEP 5: Send Request & Parse Returned Data into JSON
+
+
 
 - Once, we've opened our connection to the GitHub API, we can specify what we want to do with our data using the .onload method.
 Most importantly, we also need to make sure we actually send our request to GitHub's server using the .send() method.
@@ -103,10 +127,15 @@ requestUserRepos('facebook');
 
 
 
+
 STEP 6: Accessing the API Data
+
+
 
 - You'll notice that if you expand the individual objects from the API response, they'll contain all of the information that we're looking for. In our case, we'll want to grab the name, description, and html_url keys from each object within the data array.
 - To get that information, we'll just need to run a simple loop over the data object that's being returned to us in the response, then we can console.log it.
+
+
 
 function requestUserRepos(username){
 
@@ -160,11 +189,14 @@ function requestUserRepos(username){
 requestUserRepos('facebook');
 
 
+
 STEP 7: Creating directory.
+
+
 - Create a directory called Github_api.
 -On this directory create a file named index.html - This file will contain our HTML mark up for the our application 
 - Within the Github_api directory create a file named app.js - This file will contain our JavaScript code.
 
 
 STEP 8: Run the app.
--
+
