@@ -197,9 +197,7 @@ STEP 7: Creating directory.
 -On this directory create a file named index.html - This file will contain our HTML mark up for the our application 
 - Within the Github_api directory create a file named app.js - This file will contain our JavaScript code.
 
-
-
-
-
 STEP 8: Run the app.
+
+
 
