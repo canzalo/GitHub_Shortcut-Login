@@ -2,7 +2,6 @@
 How to use GitHub API
 
 To use GitHub API you must know the github API endpoints.
- https://api.github.com/users/canzalo/repos
 
 This is an API endpoint that GitHub has provided that allows us to return the repos for a specified user in JSON format. 
 
